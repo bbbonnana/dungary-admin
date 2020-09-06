@@ -18,17 +18,15 @@ rimraf(path.resolve(__dirname, '../dist/*'), rmErr => {
     if (err) {
       throw err
     }
-  
+
     process.stdout.write(
       stats.toString({
-        colors: true,// 增加控制台颜色开关
-        modules: false,// 不增加内置模块信息
-        children: false,// 不增加子级信息
-        chunks: false,// 允许较少的输出
-        chunkModules: false  // 不将内置模块的信息加到包信息
+        colors: true, // 增加控制台颜色开关
+        modules: false, // 不增加内置模块信息
+        children: false, // 不增加子级信息
+        chunks: false, // 允许较少的输出
+        chunkModules: false // 不将内置模块的信息加到包信息
       }) + '\n\n'
     )
-
   })
 })
-

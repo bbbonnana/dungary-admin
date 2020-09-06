@@ -14,13 +14,23 @@ module.exports = appEnv => ({
         appName: common.appName || 'App',
         title: common.title || 'App'
       },
-      // publicPath: common.PUBLIC_PATH
       favicon: 'public/favicon.png'
     }),
     new VueLoaderPlugin()
   ],
   module: {
     rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
+      },
+      {
+        enforce: 'pre',
+        test: /\.(js|vue)$/,
+        loader: 'eslint-loader',
+        exclude: /node_modules/
+      },
       {
         test: /\.vue$/i,
         loader: 'vue-loader'

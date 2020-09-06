@@ -6,7 +6,8 @@ const mode = 'development'
 module.exports = appEnv => {
   const config = {
     mode,
-    devtool: 'cheap-module-eval-source-map',
+    devtool: 'cheap-module-eval-source-map'
+    // devtool: false
     // plugins: [
     //   new webpack.DefinePlugin({
     //     'process.env.NODE_ENV': JSON.stringify(mode)
