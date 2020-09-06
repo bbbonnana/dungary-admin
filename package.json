@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "dungary admin",
   "main": "index.js",
-  "repository": "https://github.com/bbbonnana/dungary-web.git",
+  "repository": "https://github.com/bbbonnana/dungary-admin.git",
   "author": "LiNKS <a824759414@gmail.com>",
   "license": "MIT",
   "private": true,

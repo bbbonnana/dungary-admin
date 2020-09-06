@@ -1,6 +1,5 @@
 const getDevWebpack = require('./webpack.dev')
 const getProdWebpack = require('./webpack.prod')
-const common = require('../config/common')
 const { devServer } = require('../config/devServerConfig')
 // const { merge } = require('webpack-merge')
 const {
