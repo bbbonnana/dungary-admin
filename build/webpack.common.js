@@ -1,0 +1,59 @@
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const common = require('../config/common')
+
+module.exports = appEnv => ({
+  entry: {
+    app: path.resolve(__dirname, '../src/main.js')
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'public/index.html',
+      templateParameters: {
+        appName: common.appName || 'App',
+        title: common.title || 'App'
+      },
+      // publicPath: common.PUBLIC_PATH
+      favicon: 'public/favicon.png'
+    }),
+    new VueLoaderPlugin()
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.vue$/i,
+        loader: 'vue-loader'
+      },
+      {
+        test: /\.(css|scss)$/i,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: { importLoaders: 2 }
+          },
+          'postcss-loader',
+          'sass-loader'
+        ]
+      },
+      {
+        test: /\.(png|jpg|jpeg|ico|gif)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 4096,
+              name: '[name].[ext]'
+            }
+          }
+        ]
+      }
+    ]
+  },
+  output: {
+    filename: '[name].[hash].js',
+    path: path.resolve(__dirname, '../dist'),
+    publicPath: common.publicPath
+  }
+})

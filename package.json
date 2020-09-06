@@ -8,6 +8,13 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "serve": "npm run serve:local",
+    "serve:local": "cross-env MODE=dev APP_ENV=local webpack-dev-server --progress --config build/serverWebpackConfig.js",
+    "serve:dev": "cross-env MODE=dev APP_ENV=dev webpack-dev-server --progress --config build/serverWebpackConfig.js",
+    "serve:prod": "cross-env MODE=dev APP_ENV=prod webpack-dev-server --progress --config build/serverWebpackConfig.js",
+    "build:local": "cross-env MODE=dev APP_ENV=local node build/build.js",
+    "build:dev": "cross-env MODE=prod APP_ENV=dev node build/build.js",
+    "build:prod": "cross-env MODE=prod APP_ENV=prod node build/build.js"
   },
   "dependencies": {
     "vue": "^2.6.11",
@@ -21,6 +28,9 @@
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
     "postcss-loader": "^3.0.0",
+    "rimraf": "^3.0.2",
+    "sass": "^1.26.10",
+    "sass-loader": "^10.0.2",
     "style-loader": "^1.2.1",
     "url-loader": "^4.1.0",
     "vue-loader": "^15.9.3",
