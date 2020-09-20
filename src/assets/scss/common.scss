@@ -1,0 +1,32 @@
+.app-layout {
+  height: 100%;
+  width: 100%;
+  &--main {
+    .app-page {
+      padding: 30px;
+      box-sizing: border-box;
+    }
+    .app-layout__view {
+      height: 100%;
+      overflow: hidden;
+    }
+    .left-side {
+      width: 240px;
+      height: 100%;
+      float: left;
+      padding: 56px 0;
+      box-sizing: border-box;
+      border-right: 1px solid $color-border-light;
+    }
+    // .app-section {
+    //   &__header {
+    //     margin-bottom: 20px;
+    //   }
+    // }
+  }
+}
+
+.app-page {
+  width: 100%;
+  height: 100%;
+}

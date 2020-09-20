@@ -44,7 +44,15 @@ module.exports = appEnv => ({
             options: { importLoaders: 2 }
           },
           'postcss-loader',
-          'sass-loader'
+          'sass-loader',
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: [
+                path.resolve(__dirname, '../src/assets/scss/variables.scss')
+              ]
+            }
+          }
         ]
       },
       {
@@ -58,6 +66,17 @@ module.exports = appEnv => ({
             }
           }
         ]
+      },
+      {
+        test: /\.(ttf|woff)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'fonts/[name].[ext]'
+            }
+          }
+        ]
       }
     ]
   },
@@ -65,5 +84,10 @@ module.exports = appEnv => ({
     filename: '[name].[hash].js',
     path: path.resolve(__dirname, '../dist'),
     publicPath: common.publicPath
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, '../src')
+    }
   }
 })

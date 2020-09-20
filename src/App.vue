@@ -1,7 +1,6 @@
 <template>
   <div class="app-container">
-    HELLOW
-    <!-- <router-view></router-view> -->
+    <router-view></router-view>
   </div>
 </template>
 

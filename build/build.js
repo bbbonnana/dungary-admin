@@ -2,10 +2,11 @@ const webpack = require('webpack')
 const rimraf = require('rimraf')
 const path = require('path')
 const { getWebpackConfig, showBuildInfo } = require('./utils')
-// const { merge } = require('webpack-merge')
+const { merge } = require('webpack-merge')
 const mode = process.env.MODE
 const appEnv = process.env.APP_ENV
 const webpackConfig = getWebpackConfig(mode, appEnv)
+const buildConfig = require('../config/buildConfig')
 
 showBuildInfo(mode, appEnv)
 
@@ -14,7 +15,7 @@ rimraf(path.resolve(__dirname, '../dist/*'), rmErr => {
     throw rmErr
   }
 
-  webpack(webpackConfig, (err, stats) => {
+  webpack(merge(webpackConfig, buildConfig), (err, stats) => {
     if (err) {
       throw err
     }

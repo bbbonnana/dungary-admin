@@ -4,17 +4,18 @@ module.exports = {
       '@babel/preset-env',
       {
         useBuiltIns: 'usage',
-        corejs: { version: 3, proposals: false }
+        corejs: { version: 3, proposals: false },
+        modules: false
+      }
+    ]
+  ],
+  plugins: [
+    [
+      'component',
+      {
+        libraryName: 'element-ui',
+        styleLibraryName: '~theme'
       }
     ]
   ]
-  // plugins: [
-  //   [
-  //     'component',
-  //     {
-  //       libraryName: 'element-ui',
-  //       styleLibraryName: '~theme'
-  //     }
-  //   ]
-  // ]
 }
