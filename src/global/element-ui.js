@@ -7,7 +7,11 @@ import {
   Form,
   FormItem,
   Input,
-  Pagination
+  Pagination,
+  Tabs,
+  TabPane,
+  Message,
+  Loading
   // Row,
   // Col
 } from 'element-ui'
@@ -20,6 +24,11 @@ Vue.use(Form)
 Vue.use(FormItem)
 Vue.use(Input)
 Vue.use(Pagination)
+Vue.use(Tabs)
+Vue.use(TabPane)
+Vue.use(Loading.directive)
 // Vue.use(Row)
 // Vue.use(Col)
+
 Vue.prototype.$ELEMENT = { size: 'small', zIndex: 500 }
+Vue.prototype.$ms = Message

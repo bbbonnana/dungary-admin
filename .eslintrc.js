@@ -18,10 +18,13 @@ module.exports = {
   rules: {
     'space-before-function-paren': ['error', 'never'],
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-unreachable': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-unused-expressions': ['warn'],
     'no-unused-vars': ['warn'],
     'keyword-spacing': ['warn'],
-    'no-trailing-spaces': ['warn']
+    'no-trailing-spaces': ['warn'],
+    'no-multiple-empty-lines': ['warn'],
+    'no-unexpected-multiline': 'off'
   }
 }

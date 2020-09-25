@@ -2,9 +2,11 @@
   height: 100%;
   width: 100%;
   &--main {
+    line-height: 32px;
     .app-page {
-      padding: 30px;
+      padding: 0 40px;
       box-sizing: border-box;
+      overflow: auto;
     }
     .app-layout__view {
       height: 100%;
@@ -23,6 +25,9 @@
     //     margin-bottom: 20px;
     //   }
     // }
+  }
+  &--auth {
+    line-height: 32px;
   }
 }
 

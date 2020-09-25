@@ -6,14 +6,14 @@
       class="app-menu"
       :default-active="currentSelect"
       mode="vertical">
-      <el-menu-item v-for="item in menu" :key="item.menuName" :index="item.menuName" :style="{padding: 0}">
-        <router-link class="app-menu__link" :to="item.to">{{ item.title }}</router-link>
-        <!-- <span>{{ item.title }}</span> -->
+      <el-menu-item v-for="item in menu" :key="item.menuName" :index="item.menuName" :style="{padding: '0'}">
+        <router-link class="app-menu__link" :style="{paddingLeft: '20px'}" :to="item.to">{{ item.title }}</router-link>
       </el-menu-item>
     </el-menu>
   </div>
   <div class="app-layout__view">
     <!-- <keep-alive> -->
+    <Header></Header>
     <router-view class="app-page"></router-view>
     <!-- </keep-alive> -->
   </div>
@@ -22,6 +22,7 @@
 
 <script>
 import menu from './menu'
+import Header from '../common/Header.vue'
 
 const routeMap = {} // menuName -> to
 menu.forEach(item => { routeMap[item.menuName] = item.to })
@@ -32,6 +33,9 @@ export default {
       menu: Object.freeze(menu),
       currentSelect: ''
     }
+  },
+  components: {
+    Header
   },
   created() {
     this.updateSelectByRoute()
@@ -66,7 +70,6 @@ export default {
   border: none;
   &__link {
     display: block;
-    padding-left: 20px;
   }
 }
 </style>

@@ -1,0 +1,19 @@
+.auth-wrap {
+  .el-form-item__content {
+    padding-right: 20px;
+  }
+}
+
+.auth-form-title {
+  line-height: 96px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.auth-form-footer {
+  margin-top: 40px;
+  text-align: center;
+  &__operate {
+    margin-bottom: 40px;
+  }
+}

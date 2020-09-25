@@ -1,39 +1,30 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import mainRoutes from './main/index'
+import authRoutes from './auth/index'
 
 Vue.use(VueRouter)
-
-const homeRoute = {
-  path: 'home',
-  component: () => import('@/views/home/Home.vue'),
-  meta: {
-    menu: 'home'
-  }
-}
-
-// // 用户管理页
-// const userRoute = {
-//   path: 'user',
-//   component: () => import('@/views/user/User.vue'),
-//   meta: {
-//     menu: 'user'
-//   }
-// }
 
 const routes = [
   {
     path: '/',
-    component: () => import('@/views/layout/MainLayout.vue'),
+    component: () => import('@/components/layout/MainLayout.vue'),
     children: [
-      homeRoute,
-      // userRoute,
-      { path: '*', redirect: 'home' }
+      ...mainRoutes
     ]
+  },
+  {
+    name: 'authLayout',
+    path: '/auth',
+    component: () => import('@/components/layout/AuthLayout.vue'),
+    children: [
+      ...authRoutes
+    ]
+  },
+  {
+    path: '*',
+    redirect: '/'
   }
-  // {
-  //   path: '*',
-  //   redirect: '/'
-  // }
 ]
 
 const router = new VueRouter({
